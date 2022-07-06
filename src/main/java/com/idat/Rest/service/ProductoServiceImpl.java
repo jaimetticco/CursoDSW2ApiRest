@@ -18,34 +18,34 @@ public class ProductoServiceImpl implements ProductoService {
 	@Override
 	public void guardarP(Productos productos) {
 		// TODO Auto-generated method stub
-		repository.guardarP(productos);
+		repository.save(productos);
 
 	}
 
 	@Override
 	public void actualizarP(Productos productos) {
 		// TODO Auto-generated method stub
-		repository.actualizarP(productos);
+		repository.saveAndFlush(productos);
 
 	}
 
 	@Override
 	public void eliminarP(Integer id) {
 		// TODO Auto-generated method stub
-		repository.eliminarP(id);
+		repository.deleteById(id);
 
 	}
 
 	@Override
 	public List<Productos> listarP() {
 		// TODO Auto-generated method stub
-		return repository.listarP();
+		return repository.findAll();
 	}
 
 	@Override
 	public Productos obtenerPorId(Integer id) {
 		// TODO Auto-generated method stub
-		return repository.obtenerPorId(id);
+		return repository.findById(id).orElse(null);
 	}
 
 }
